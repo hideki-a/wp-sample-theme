@@ -1,0 +1,55 @@
+@charset "UTF-8";
+/*
+Theme Name: Sample Child
+Text Domain: anothersky-sample-child
+Version: 1.0
+Requires at least: 5.8
+Requires PHP: 7.3
+Description: Sample theme.
+Template: sample
+Author: Hideki Abe.
+Author URI: https://www.anothersky.jp/
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+All files, unless otherwise stated, are released under the GNU General Public
+License version 2.0 (http://www.gnu.org/licenses/gpl-2.0.html)
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned
+with others.
+*/
+
+body {
+	margin: 0;
+}
+
+header {
+	padding: 10px;
+	box-shadow: 0 0 15px -4px rgba(0,0,0,.2);
+}
+
+main {
+	margin: 10px;
+}
+
+.contact {
+	padding: 10px;
+	border: 1px solid #aaa;
+}
+
+footer {
+	margin-top: 3em;
+	background-color: #dfe2e5;
+}
+
+.footer-content {
+	padding: 10px;
+}
+
+.copyright {
+	padding: 10px;
+	background-color: #333;
+	color: #fff;
+	text-align: center;
+}

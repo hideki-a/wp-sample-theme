@@ -1,0 +1,56 @@
+<?php
+/**
+ * ヘッダークリーンアップ
+ */
+remove_action( 'wp_head', 'feed_links_extra', 3 );
+remove_action( 'wp_head', 'rsd_link' );
+remove_action( 'wp_head', 'wlwmanifest_link' );
+remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
+remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );
+remove_action( 'wp_head', 'rel_canonical' );
+remove_action( 'wp_head', 'wp_generator' );
+remove_action( 'wp_head', 'rest_output_link_wp_head' );
+remove_action( 'wp_head', 'wp_oembed_add_discovery_links' );
+remove_action( 'wp_head', 'wp_oembed_add_host_js' );
+remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+remove_action( 'wp_print_styles', 'print_emoji_styles' );
+
+function anothersky_remove_dns_prefetch( $hints, $relation_type ) {
+	if ( 'dns-prefetch' === $relation_type ) {
+		return array_diff( wp_dependencies_unique_hosts(), $hints );
+	}
+	return $hints;
+}
+
+add_filter( 'wp_resource_hints', 'anothersky_remove_dns_prefetch', 10, 2 );
+
+
+/**
+ * ウィジェット
+ */
+require_once dirname( __FILE__ ) . '/function-parts/widget/footer-company-data.php';
+
+// Deactivate new block editor.
+// ウィジェットの編集はブロックエディタでなくてもよいかも（要検討）
+add_action( 'after_setup_theme', function () {
+	remove_theme_support( 'widgets-block-editor' );
+} );
+
+
+/**
+ * 独自の設定項目
+ */
+function anothersky_display_test_option() {
+	$test_option = get_option( 'test_option' );
+	?>
+	<input name="test_option" id="test_option" type="text" value="<?php echo esc_html( $test_option ); ?>" class="regular-text">
+	<p class="description">これはfunctions.phpで設定したフィールドです。フィールド入力のヒントを記述します。</p>
+	<?php
+}
+
+function anothersky_test_option_field() {
+	add_settings_field( 'test_option', '独自の項目テスト', 'anothersky_display_test_option', 'general' );
+	register_setting( 'general', 'test_option' );
+}
+
+add_filter( 'admin_init', 'anothersky_test_option_field' );

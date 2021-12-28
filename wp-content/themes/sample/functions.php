@@ -54,3 +54,27 @@ function anothersky_test_option_field() {
 }
 
 add_filter( 'admin_init', 'anothersky_test_option_field' );
+
+
+/**
+ * ロゴの設定
+ *
+ * Twenty Twentyより
+ */
+$logo_width  = 120;
+$logo_height = 90;
+
+if ( get_theme_mod( 'retina_logo', false ) ) {
+	$logo_width  = floor( $logo_width * 2 );
+	$logo_height = floor( $logo_height * 2 );
+}
+
+add_theme_support(
+	'custom-logo',
+	array(
+		'height'      => $logo_height,
+		'width'       => $logo_width,
+		'flex-height' => true,
+		'flex-width'  => true,
+	)
+);

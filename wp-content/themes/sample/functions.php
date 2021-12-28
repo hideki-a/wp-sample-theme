@@ -78,3 +78,32 @@ add_theme_support(
 		'flex-width'  => true,
 	)
 );
+
+
+/**
+ * 独自のカラーパレットを定義
+ *
+ * https://ja.wordpress.org/team/handbook/block-editor/how-to-guides/themes/theme-support/
+ */
+add_theme_support( 'editor-color-palette', array(
+    array(
+        'name'  => 'strong magenta',
+        'slug'  => 'strong-magenta',
+        'color' => '#a156b4',
+    ),
+    array(
+        'name'  => 'light grayish magenta',
+        'slug'  => 'light-grayish-magenta',
+        'color' => '#d0a5db',
+    ),
+    array(
+        'name'  => 'very light gray',
+        'slug'  => 'very-light-gray',
+        'color' => '#eee',
+    ),
+    array(
+        'name'  => 'very dark gray',
+        'slug'  => 'very-dark-gray',
+        'color' => '#444',
+    ),
+) );

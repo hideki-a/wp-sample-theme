@@ -4,7 +4,7 @@ get_header();
 
 <main>
 	<div>
-		<img src="<?php echo get_template_directory_uri(); ?>/assets/images/sample_01.jpg" style="margin: 0 -10px; width: calc(100% + 20px);" alt="">
+		<img src="<?php echo( esc_attr( get_template_directory_uri() ) ); ?>/assets/images/sample_01.jpg" style="margin: 0 -10px; width: calc(100% + 20px);" alt="">
 	</div>
 	<?php
 		the_content();

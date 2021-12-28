@@ -2,7 +2,7 @@
 
 class FooterCompanyData extends WP_Widget {
 
-	/*
+	/**
 	 * Widgetを登録する
 	 */
 	function __construct() {
@@ -12,7 +12,7 @@ class FooterCompanyData extends WP_Widget {
 		);
 	}
 
-	/*
+	/**
 	 * 表側の Widget を出力する
 	 *
 	 * @param array $args      'register_sidebar'で設定した「before_title, after_title, before_widget, after_widget」が入る
@@ -22,10 +22,10 @@ class FooterCompanyData extends WP_Widget {
 		$company_name = esc_html( $instance['company_name'] );
 		$address      = esc_html( $instance['address'] );
 		$tel          = esc_html( $instance['tel'] );
-		echo "<div>${company_name}<br>${address}<br>${tel}</div>";
+		echo( "<div>${company_name}<br>${address}<br>${tel}</div>" );
 	}
 
-	/*
+	/**
 	 * Widget管理画面を出力する
 	 *
 	 * @param array $instance 設定項目
@@ -33,33 +33,33 @@ class FooterCompanyData extends WP_Widget {
 	 */
 	public function form( $instance ){
 		$company_name      = $instance['company_name'];
-		$company_name_name = $this->get_field_name('company_name');
-		$company_name_id   = $this->get_field_id('company_name');
+		$company_name_name = $this->get_field_name( 'company_name' );
+		$company_name_id   = $this->get_field_id( 'company_name' );
 
 		$address      = $instance['address'];
-		$address_name = $this->get_field_name('address');
-		$address_id   = $this->get_field_id('address');
-		
+		$address_name = $this->get_field_name( 'address' );
+		$address_id   = $this->get_field_id( 'address' );
+
 		$tel      = $instance['tel'];
-		$tel_name = $this->get_field_name('tel');
-		$tel_id   = $this->get_field_id('tel');
+		$tel_name = $this->get_field_name( 'tel' );
+		$tel_id   = $this->get_field_id( 'tel' );
 		?>
 		<p>
-			<label for="<?php echo $company_name_id; ?>">会社名:</label>
-			<input class="widefat" id="<?php echo $company_name_id; ?>" name="<?php echo $company_name_name; ?>" type="text" value="<?php echo esc_attr( $company_name ); ?>">
+			<label for="<?php echo esc_attr( $company_name_id ); ?>">会社名:</label>
+			<input class="widefat" id="<?php echo esc_attr( $company_name_id ); ?>" name="<?php echo esc_attr( $company_name_name ); ?>" type="text" value="<?php echo esc_attr( $company_name ); ?>">
 		</p>
 		<p>
-			<label for="<?php echo $address_id; ?>">所在地:</label>
-			<input class="widefat" id="<?php echo $address_id; ?>" name="<?php echo $address_name; ?>" type="text" value="<?php echo esc_attr( $address ); ?>">
+			<label for="<?php echo esc_attr( $address_id ); ?>">所在地:</label>
+			<input class="widefat" id="<?php echo esc_attr( $address_id ); ?>" name="<?php echo esc_attr( $address_name ); ?>" type="text" value="<?php echo esc_attr( $address ); ?>">
 		</p>
 		<p>
-			<label for="<?php echo $tel_id; ?>">TEL:</label>
-			<input class="widefat" id="<?php echo $tel_id; ?>" name="<?php echo $tel_name; ?>" type="text" value="<?php echo esc_attr( $tel ); ?>">
+			<label for="<?php echo esc_attr( $tel_id ); ?>">TEL:</label>
+			<input class="widefat" id="<?php echo esc_attr( $tel_id ); ?>" name="<?php echo esc_attr( $tel_name ); ?>" type="text" value="<?php echo esc_attr( $tel ); ?>">
 		</p>
 		<?php
 	}
 
-	/*
+	/**
 	 * 新しい設定データが適切なデータかどうかをチェックする。
 	 * 必ず$instanceを返す。さもなければ設定データは保存（更新）されない。
 	 *
@@ -72,10 +72,15 @@ class FooterCompanyData extends WP_Widget {
 	}
 }
 
-add_action( 'widgets_init', function () {
-	register_widget( 'FooterCompanyData' );
-	register_sidebar( [
-		'name'          => 'フッター',
-		'id'            => 'footer-widget',
-	] );
-} );
+add_action(
+	'widgets_init',
+	function () {
+		register_widget( 'FooterCompanyData' );
+		register_sidebar(
+			array(
+				'name' => 'フッター',
+				'id'   => 'footer-widget',
+			)
+		);
+	}
+);

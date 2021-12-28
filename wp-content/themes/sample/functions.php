@@ -32,9 +32,12 @@ require_once dirname( __FILE__ ) . '/function-parts/widget/footer-company-data.p
 
 // Deactivate new block editor.
 // ウィジェットの編集はブロックエディタでなくてもよいかも（要検討）
-add_action( 'after_setup_theme', function () {
-	remove_theme_support( 'widgets-block-editor' );
-} );
+add_action(
+	'after_setup_theme',
+	function () {
+		remove_theme_support( 'widgets-block-editor' );
+	}
+);
 
 
 /**
@@ -85,25 +88,28 @@ add_theme_support(
  *
  * https://ja.wordpress.org/team/handbook/block-editor/how-to-guides/themes/theme-support/
  */
-add_theme_support( 'editor-color-palette', array(
-    array(
-        'name'  => 'strong magenta',
-        'slug'  => 'strong-magenta',
-        'color' => '#a156b4',
-    ),
-    array(
-        'name'  => 'light grayish magenta',
-        'slug'  => 'light-grayish-magenta',
-        'color' => '#d0a5db',
-    ),
-    array(
-        'name'  => 'very light gray',
-        'slug'  => 'very-light-gray',
-        'color' => '#eee',
-    ),
-    array(
-        'name'  => 'very dark gray',
-        'slug'  => 'very-dark-gray',
-        'color' => '#444',
-    ),
-) );
+add_theme_support(
+	'editor-color-palette',
+	array(
+		array(
+			'name'  => 'strong magenta',
+			'slug'  => 'strong-magenta',
+			'color' => '#a156b4',
+		),
+		array(
+			'name'  => 'light grayish magenta',
+			'slug'  => 'light-grayish-magenta',
+			'color' => '#d0a5db',
+		),
+		array(
+			'name'  => 'very light gray',
+			'slug'  => 'very-light-gray',
+			'color' => '#eee',
+		),
+		array(
+			'name'  => 'very dark gray',
+			'slug'  => 'very-dark-gray',
+			'color' => '#444',
+		),
+	)
+);

@@ -123,3 +123,15 @@ add_theme_support(
 		),
 	)
 );
+
+
+/**
+ * after_setup_themeフックの処理
+ */
+add_action( 'after_setup_theme', function () {
+	// ブロックエディタ用スタイル機能をテーマに追加
+	add_theme_support( 'editor-styles' );
+
+	// ブロックエディタ用CSSの読み込み
+	add_editor_style( 'block-editor-style.css' );
+});

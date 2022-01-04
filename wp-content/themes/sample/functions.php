@@ -32,12 +32,12 @@ require_once dirname( __FILE__ ) . '/function-parts/widget/footer-company-data.p
 
 // Deactivate new block editor.
 // ウィジェットの編集はブロックエディタでなくてもよいかも（要検討）
-add_action(
-	'after_setup_theme',
-	function () {
-		remove_theme_support( 'widgets-block-editor' );
-	}
-);
+// add_action(
+// 	'after_setup_theme',
+// 	function () {
+// 		remove_theme_support( 'widgets-block-editor' );
+// 	}
+// );
 
 
 /**

@@ -84,6 +84,16 @@ add_theme_support(
 
 
 /**
+ * メニュー設定
+ */
+register_nav_menus(
+	array(
+		'nav_global' => 'グローバルメニュー',
+	)
+);
+
+
+/**
  * 独自のカラーパレットを定義
  *
  * https://ja.wordpress.org/team/handbook/block-editor/how-to-guides/themes/theme-support/

@@ -11,4 +11,15 @@
 	<body>
 		<header>
 			<?php get_template_part( 'template-parts/sitelogo' ); ?>
+			<?php
+				wp_nav_menu(
+					array(
+						'menu_class'     => 'globalNav',
+						'menu_id'        => 'globalnav',
+						'theme_location' => 'nav_global',
+						'container'      => false,
+						'depth'          => 2,
+					)
+				);
+			?>
 		</header>

@@ -135,3 +135,26 @@ add_action( 'after_setup_theme', function () {
 	// ブロックエディタ用CSSの読み込み
 	add_editor_style( 'block-editor-style.css' );
 });
+
+
+function anothersky_announce_dashboard_widget_function() {
+	echo <<<EOM
+<h2>注意事項</h2>
+<ul>
+<li>スラッグは英語表記でお願いします。</li>
+</ul>
+<hr>
+<h2>更新マニュアル</h2>
+<p>HTMLで自由に内容が書けます。例えばここにPDFファイルへのリンクを貼ることもできます。</p>
+EOM;
+}
+
+function anothersky_announce_add_dashboard_widgets() {
+	wp_add_dashboard_widget(
+		'announce_dashboard_widget',
+		'Sample Theme Read Me',
+		'anothersky_announce_dashboard_widget_function'
+	);
+}
+
+add_action( 'wp_dashboard_setup', 'anothersky_announce_add_dashboard_widgets' );

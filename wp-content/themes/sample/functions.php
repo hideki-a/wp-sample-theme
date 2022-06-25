@@ -128,6 +128,7 @@ add_theme_support(
 /**
  * after_setup_themeフックの処理
  */
+/*
 add_action( 'after_setup_theme', function () {
 	// ブロックエディタ用スタイル機能をテーマに追加
 	add_theme_support( 'editor-styles' );
@@ -135,6 +136,17 @@ add_action( 'after_setup_theme', function () {
 	// ブロックエディタ用CSSの読み込み
 	add_editor_style( 'block-editor-style.css' );
 });
+*/
+
+
+/**
+ * enqueue_block_editor_assetsフックの処理
+ */
+add_action( 'enqueue_block_editor_assets', function () {
+	// ブロックエディタ用CSSの読み込み
+	wp_enqueue_style( 'block-editor-style', get_theme_file_uri( 'editor-style.css' ) );
+});
+
 
 /**
  * ダッシュボード

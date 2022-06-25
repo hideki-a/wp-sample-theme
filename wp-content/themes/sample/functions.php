@@ -140,3 +140,20 @@ add_action( 'after_setup_theme', function () {
  * ダッシュボード
  */
 require_once dirname( __FILE__ ) . '/function-parts/dashboard.php';
+
+
+/**
+ * 編集画面のbody要素にclassを追加
+ */
+add_filter( 'admin_body_class', function ( $classes ) {
+	global $post;
+	$screen = get_current_screen();
+	if ( $screen->base === 'post' ) {
+		if ( ! empty( $post ) && $post->ID ) {
+			$classes .= ' edit-' . $screen->post_type . '-' . $post->ID;
+		} else {
+			$classes .= ' edit-' . $screen->post_type;
+		}
+	}
+	return $classes;
+});
